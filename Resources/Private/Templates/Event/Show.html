@@ -1,0 +1,40 @@
+<h1 xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">{event.titel}</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <f:image image="{event.bild}" width="300c" height="300c" class="img-fluid" />
+    </div>
+    <div class="col-md-8">
+        <p><strong>Datum:</strong> {event.datum -> f:format.date(format:'d.m.Y')}</p>
+        <p>{event.beschreibung}</p>
+    </div>
+</div>
+
+<h3 class="mt-4">Wählen Sie Ihre Ticket-Kategorie:</h3>
+
+<div class="accordion" id="ticketAccordion">
+    <f:for each="{event.karten}" as="karte" iteration="i">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-{karte.uid}">
+                <button class="accordion-button {f:if(condition: i.isFirst, else: 'collapsed')}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{karte.uid}">
+                    {karte.titel } - <strong><f:format.currency currencySign="€">{karte.grundPreis}</f:format.currency></strong>
+                </button>
+            </h2>
+            <div id="collapse-{karte.uid}" class="accordion-collapse collapse {f:if(condition: i.isFirst, then: 'show')}" data-bs-parent="#ticketAccordion">
+                <div class="accordion-body">
+                    <div class="mb-3">
+                        <f:format.html>{karte.beschreibung}</f:format.html>
+                    </div>
+
+                    <f:link.action
+                            controller="Buchung"
+                            action="new"
+                            arguments="{event: event, gewaehlteKarte: karte}"
+                            class="btn btn-success">
+                        {karte.titel} buchen
+                    </f:link.action>
+                </div>
+            </div>
+        </div>
+    </f:for>
+</div>

@@ -1,0 +1,50 @@
+<f:form action="create" object="{buchung}" name="buchung">
+    <h2>Ihre Buchung für {event.titel}</h2>
+
+    <f:form.hidden property="event" value="{event}" />
+
+    <div class="mb-3 ticket-portal">
+        <label class="form-label">Gewähltes Ticket</label>
+        <f:for each="{event.karten}" as="karte" iteration="i">
+
+            <div class="ticket-box">
+
+                <h3>{karte.titel}</h3>
+
+                <p>{karte.grundPreis} €</p>
+
+                <label>Anzahl</label>
+
+                <input
+                        type="number"
+                        min="0"
+                        name="tx_ticketsystem_events[positionen][{i.index}][anzahl]"
+                        value="0"
+                />
+
+                <input
+                        type="hidden"
+                        name="tx_ticketsystem_events[positionen][{i.index}][karte]"
+                        value="{karte.uid}"
+                />
+
+            </div>
+
+        </f:for>
+        <small class="text-muted">Sie können Ihre Auswahl hier noch einmal ändern.</small>
+    </div>
+    <div class="mb-3">
+        <label>Vorname</label>
+        <f:form.textfield property="hauptKunde.vorname" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Nachname</label>
+        <f:form.textfield property="hauptKunde.nachname" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>E-Mail</label>
+        <f:form.textfield property="hauptKunde.email" class="form-control" />
+    </div>
+
+    <f:form.submit value="Jetzt zahlungspflichtig buchen" class="btn btn-primary" />
+</f:form>

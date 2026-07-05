@@ -1,0 +1,26 @@
+<h2>Buchung erfolgreich 🎟️</h2>
+
+<p>Name: {buchung.hauptKunde.name}</p>
+
+<p>Preis: {preis} €</p>
+
+<f:if condition="{buchung.mitreisende}">
+    <h3>Mitreisende:</h3>
+    <ul>
+        <f:for each="{buchung.positionen}" as="position">
+
+            <p>
+
+                {position.anzahl}x
+
+                {position.karte.titel}
+
+                -
+
+                {position.einzelpreis} €
+
+            </p>
+
+        </f:for>
+    </ul>
+</f:if>

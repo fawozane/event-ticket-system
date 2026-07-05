@@ -1,0 +1,23 @@
+
+plugin.tx_ticketsystem_ticketsystem {
+
+    view {
+
+        templateRootPaths.0 = EXT:ticket_system/Resources/Private/Templates/
+
+        partialRootPaths.0 = EXT:ticket_system/Resources/Private/Partials/
+
+        layoutRootPaths.0 = EXT:ticket_system/Resources/Private/Layouts/
+
+    }
+    persistence {
+        storagePid = 12
+    }
+
+}
+
+page.includeCSS {
+
+    ticketportal = EXT:ticket_system/Resources/Public/Css/main.css
+
+}

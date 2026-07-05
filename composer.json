@@ -1,0 +1,18 @@
+{
+  "name": "oklahoma/ticket-system",
+  "type": "typo3-cms-extension",
+  "description": "Ticket Buchungssystem Extension für TYPO3",
+  "require": {
+    "typo3/cms-core": "^14"
+  },
+  "autoload": {
+    "psr-4": {
+      "Oklahoma\\TicketSystem\\": "Classes/"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "ticket_system"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+
+
+<f:for each="{events}" as="event">
+
+    <div class="event-card">
+
+        <h2>{event.titel}</h2>
+
+        <p>{event.beschreibung}</p>
+
+        <p>
+            {event.datum -> f:format.date(format:'d.m.Y H:i')}
+        </p>
+
+        <p>Ab {event.guenstigsterPreis -> f:format.number(decimals: 2, decimalSeparator: ',', thousandsSeparator: '.')} €</p>
+
+        <f:if condition="{event.bild}">
+            <f:image image="{event.bild}" width="400" />
+        </f:if>
+
+        <f:link.action action="show" controller="Event" arguments="{event: event}" class="btn btn-primary">
+            Details & Tickets
+        </f:link.action>
+
+    </div>
+
+</f:for>
