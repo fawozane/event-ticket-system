@@ -1,3 +1,4 @@
+page.includeCSS.ticketSystem = EXT:ticket_system/Resources/Public/Css/main.css
 
 plugin.tx_ticketsystem_ticketsystem {
 
@@ -16,8 +17,3 @@ plugin.tx_ticketsystem_ticketsystem {
 
 }
 
-page.includeCSS {
-
-    ticketportal = EXT:ticket_system/Resources/Public/Css/main.css
-
-}

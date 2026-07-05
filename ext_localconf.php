@@ -18,7 +18,5 @@ use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 );
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup(
-
-    "@import 'EXT:ticket_system/Configuration/TypoScript/setup.typoscript'"
-
+    '@import "EXT:ticket_system/Configuration/TypoScript/setup.typoscript"'
 );
